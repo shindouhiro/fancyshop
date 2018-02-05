@@ -3,7 +3,7 @@ import { Flex } from 'antd-mobile';
 import shopImg from '../../assets/img/timg.jpg';
 import goodImg from '../../assets/img/reward/good.jpg';
 
-class OrderList extends React.Component {
+class OrderTest extends React.Component {
   constructor(props) {
     super(props)
   }
@@ -35,4 +35,4 @@ class OrderList extends React.Component {
   }
 }
 
-export default OrderList;
+export default OrderTest;
