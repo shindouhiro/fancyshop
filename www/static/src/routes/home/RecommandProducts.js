@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import { Flex, WhiteSpace, WingBlank, Badge} from 'antd-mobile';
+import { Flex, WhiteSpace, WingBlank, Badge, Toast} from 'antd-mobile';
 import style from './RecommandProducts.css';
 import goodsImg from '../../assets/img/home/one.jpg';
 import { loadRecommandProducts } from '../../actions/products';
@@ -38,11 +38,13 @@ class RecommandProducts extends React.Component {
     console.log(this.props);
     let products = [];
     if (this.props.recommandProducts.products) {
+      Toast.hide();
       this.props.recommandProducts.products.map((product,index)=>{
         products.push(this.renderItem(product, index));
       });
     }else{
-      products ="加载中";
+      products = 	''
+      // Toast.loading('加载中',0);
     }
     return(
       <div  style = {{backgroundColor:'#fff',padding:'10px'}}>

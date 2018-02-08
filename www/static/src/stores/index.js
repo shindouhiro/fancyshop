@@ -7,7 +7,8 @@ import { cart } from '../reducers/cart.redux';
 import { product } from '../reducers/product.redux';
 import { model } from '../reducers/model.redux';
 import { productShow } from '../reducers/product';
-import { order } from '../reducers/order'
+import { order } from '../reducers/order';
+import { balance } from '../reducers/balance';
 import { recommandProducts } from '../reducers/recommand_products';
 import thunk from 'redux-thunk'
 // import createHistory from 'history/createBrowserHistory'
@@ -31,6 +32,7 @@ export default function configureStore() {
       model,
       productShow,
       order,
+      balance
     }),
     enhancer);
 }

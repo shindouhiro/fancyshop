@@ -86,6 +86,7 @@ class ProductModal extends React.Component {
       };
       console.log(`提交订单`)
       this.props.createOrder(params);
+      this.props.closeSpecModel()
      }
     // let selected =product.selected !== undefined ?product.selected :product.good.spec[0]
     //    let count =product.count !== undefined ?product.count : 1

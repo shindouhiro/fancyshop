@@ -18,7 +18,7 @@ import {setAppTitle} from '../../actions/app.js';
 import './index.css';
 import axios from 'axios';
 import '../../service/data/datasource'
-import { loadRecommandProducts } from '../../actions/products';
+import { loadRecommandProducts,gainRecommandProducts } from '../../actions/products';
 import {getHomeTags} from '../../actions/app.js'
 
 
@@ -38,6 +38,7 @@ class AppHome extends React.Component{
     dispatch(loadRecommandProducts(1,3));
     dispatch(getHomeTags());
     dispatch(setAppTitle(this.props.path));
+    dispatch(gainRecommandProducts(1,3));
     setTimeout(() => {
      this.setState({
        data: ['banner1.jpeg', 'banner2.jpeg', 'banner3.jpeg'],
@@ -90,7 +91,7 @@ class AppHome extends React.Component{
           <WhiteSpace />
             <ShopTagMenu history={this.props.path} />
           <WhiteSpace />
-          <GoodsList />
+          <GoodsList recommandProducts={this.props.products.products} />
 
         </Flex>
     )
@@ -99,7 +100,8 @@ class AppHome extends React.Component{
 function indexHome(state){
   return {
     appInfo: state.AppInfo,
-    recommandProducts: state.recommandProducts
+    recommandProducts: state.recommandProducts,
+    products: state.productShow
   }
 }
 export default connect(indexHome)(AppHome);

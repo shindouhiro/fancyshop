@@ -8,12 +8,16 @@ import good2Img from '../../assets/img/timg.jpg';
 import '../../service/data/datasource';
 import axios from 'axios';
 import { connect } from 'react-redux';
-import { productList } from '../../reducers/product.redux';
+import { productList, product } from '../../reducers/product.redux';
 import { productinfo } from '../../map_props';
+import { productShow } from '../../reducers/product';
+import { gainRecommandProducts } from '../../actions/products';
+import { asteroid } from '../../config/asteroid.config';
 
 
 
 let page = 1;
+let data = [];
 class GoodsList extends React.Component {
   constructor(props) {
     super(props);
@@ -29,15 +33,18 @@ class GoodsList extends React.Component {
   }
 
   componentDidMount() {
-    this.props.productList();
+    // this.props.productList();
   }
 
   // If you use redux, the data maybe at props, you need use `componentWillReceiveProps`
   componentWillReceiveProps(nextProps) {
-    console.log(nextProps);
-    if (nextProps.prodcut !== this.props.product) {
+    console.log(nextProps.recommandProducts);
+    console.log(this.props.products.products)
+    if (nextProps.prodcuts !== this.props.products.products) {
+      console.log(`出来啊`)
+      data = nextProps.recommandProducts
       this.setState({
-        dataSource: this.state.dataSource.cloneWithRows(nextProps.product.goods),
+        dataSource: this.state.dataSource.cloneWithRows(nextProps.recommandProducts),
         isLoading: false,
       });
     }else{
@@ -46,8 +53,31 @@ class GoodsList extends React.Component {
   }
 
   onEndReached = (event) => {
+    page += 1;
+    console.log(page);
+    let { dispatch } = this.props;
+    this.setState({
+      isLoading: true,
+    });
+    // asteroid.subscribe('app.get.recommend.products',page,3);
+    // asteroid.connect();
+    // let products = [];
+    // asteroid.ddp.on("added", ({collection, id, fields}) => {
+    //   console.log(fields)
+    //   if(collection==='products'){
+    //     if(products.length< 3){
+    //       fields.id = id
+    //       products.push(fields)
+    //     }
+    //   }
+    // })
+    // console.log(data);
+    // console.log(products);
+    // data = data.slice().concat(products);
+    // console.log(data);
+    dispatch(gainRecommandProducts(page,3,this.props.products.products));
     console.log('reach end', event);
-    this.setState({ isLoading: false });
+    // this.setState({ isLoading: false });
   }
 
   render() {
@@ -80,7 +110,7 @@ class GoodsList extends React.Component {
               <img style={{ height: '64px', marginRight: '15px' }} src={rowData.cover} alt="" />
               <div style={{ lineHeight: 1 }}>
                 <div style={{ marginBottom: '8px', fontWeight: 'bold' }}>{rowData.description}</div>
-                <div><span style={{ fontSize: '25px', color: '#FF6E27' }}><span style = {{color:'#FF6E27',fontSize:'20px',paddingRight:'5px'}}>¥</span>{rowData.price}</span></div>
+                <div><span style={{ fontSize: '25px', color: '#FF6E27' }}><span style = {{color:'#FF6E27',fontSize:'20px',paddingRight:'5px'}}>¥</span>{rowData.price/100}</span></div>
               </div>
             </div>
           </Link>
@@ -101,7 +131,6 @@ class GoodsList extends React.Component {
         className="am-list"
         pageSize={4}
         useBodyScroll
-        onScroll={() => { console.log('scroll'); }}
         scrollRenderAheadDistance={500}
         onEndReached={this.onEndReached}
         onEndReachedThreshold={10}
@@ -110,5 +139,10 @@ class GoodsList extends React.Component {
     );
   }
 }
+function mapProducts(state) {
+  return {
+    products: state.productShow
+  }
+}
 
-export default connect(productinfo,{productList})(GoodsList);
+export default connect(mapProducts)(GoodsList);

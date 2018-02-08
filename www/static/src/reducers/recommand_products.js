@@ -1,4 +1,4 @@
-import {EXCEPT_RECOMMAND_PRODUCTS, RECEIVE_RECOMMAND_PRODUCTS, RECEIVEPRODUCTBYID} from '../actions/products.js'
+import {EXCEPT_RECOMMAND_PRODUCTS, RECEIVE_RECOMMAND_PRODUCTS, RECEIVE_PRODUCT_BYID} from '../actions/products.js'
 export function recommandProducts(state={
   status: "ready",
   loadingText: "开始加载",

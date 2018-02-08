@@ -8,6 +8,7 @@ class AwardIncome extends React.Component {
   }
 
 render(){
+  let { total } = this.props
   return(
     <div className = {styles['Award-frame']}>
       <Flex align = "center">
@@ -21,9 +22,9 @@ render(){
           <span>30天</span>
         </Flex>
         <Flex  justify = "around" className = {styles['income-money']}>
-          <span className = {styles['income-money-border']}>38.88</span>
-          <span className = {styles['income-money-border']}>150.05</span>
-          <span>388.88</span>
+          <span className = {styles['income-money-border']}>{total.todayTotal}</span>
+          <span className = {styles['income-money-border']}>{total.weekTotal}</span>
+          <span>{total.monthTotal}</span>
         </Flex>
       </Flex>
       <br/>

@@ -1,4 +1,4 @@
-import { RECEIVEPRODUCTBYID,ADD_COUNT } from '../actions/products.js'
+import { RECEIVE_PRODUCT_BYID,ADD_COUNT,RECEIVE_SHOP_PRODUCTS_BYSHOPID,GET_RECOMMAND_PRODUCTS} from '../actions/products.js'
 const initState = {
 	product:{
     "_id" : null,
@@ -59,12 +59,13 @@ const initState = {
 	"address": "四川 成都",
 	"inventory": 39,
 	"sales": 74,
-	"count": 1
+	"count": 1,
+	products: null
 }
 
 export function productShow(state=initState, action){
     switch (action.type) {
-			case  RECEIVEPRODUCTBYID:
+			case  RECEIVE_PRODUCT_BYID:
 			return Object.assign({},state,{
 				product: action.product
 			})
@@ -72,6 +73,15 @@ export function productShow(state=initState, action){
 			return Object.assign({},state,{ 
 				count: action.count
 				})
+			break;
+			case RECEIVE_SHOP_PRODUCTS_BYSHOPID:
+			return Object.assign({},state,{
+				products: action.products
+			})
+			case GET_RECOMMAND_PRODUCTS:
+			return Object.assign({},state,{
+				products: action.products
+			})
 			break;
       default:
 				return state
