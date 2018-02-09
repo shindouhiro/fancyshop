@@ -36,10 +36,15 @@
   line-height: 3em;
   color: #3b3b3b;
   font-family: HiraginoSansGB-W3;
-  font-size: 14px;
+  font-size: 16px;
+  /*text-align: center;*/
+  justify-content: center;
+  /*flex: 0 0 33.3333%;
+  box-sizing: border-box;*/
 }
 .income-money-border {
-  border-right: 1px dashed #e8e8e8;
-  text-align: center;
-  padding-right: 2rem;
+  /*border-right: 1px dashed #e8e8e8;*/
+  /*border-right: 1px dashed #000;*/
+  /*text-align: center;
+  padding-right: 2rem;*/
 }

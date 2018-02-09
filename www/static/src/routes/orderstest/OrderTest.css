@@ -1,0 +1,59 @@
+.order-frame {
+  background-color: #fff;
+  padding: 10px;
+}
+.shop-img {
+  width: 38px;
+  height: 38px;
+  border-radius: 19px;
+  margin-right: 10px;
+}
+.shop-name {
+  color: #333;
+  font-size: 16px;
+  font-weight: 600;
+}
+.good-item {
+  background-color: #eee;
+  padding: 10px;
+  margin-top: 10px;
+}
+.good-img {
+  width: 70px;
+}
+.good-img img {
+  width: 60px;
+  height: 60px;
+}
+.good-des {
+  width: 100%;
+}
+.good-describe {
+  color: #333;
+  font-size: 16px;
+  font-weight: 600;
+  width: 100%;
+  padding-left: 10px;
+}
+.good-type {
+  display: flex;
+  justify-content: space-around;
+  padding-left: 10px;
+  color: #666;
+}
+.good-price {
+  padding-left: 3rem;
+  padding-right: 15px;
+}
+.total {
+  margin: 15px 0 10px 0;
+}
+.total-font {
+  color: #333;
+  font-size: 16px;
+}
+.total-price {
+  color: red;
+  font-size: 26px;
+  padding-left: 20px;
+}
