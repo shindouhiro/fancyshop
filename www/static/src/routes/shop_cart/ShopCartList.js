@@ -122,7 +122,7 @@ class ShopCartList extends React.Component {
                     <img alt="" src = { goodsImg } className = {styles['good-img']} style = {{width:'60px',height:'70px'}}/>
                     <Flex.Item classnam = {styles['decribe-frame']} style = {{width:'100%',fontSize:'14px',overflow:'hidden',whiteSpace:'nowrap',textOverflow:'ellipsis'}}>
                       <span style = {{width:'100%',overflow:'hidden',whiteSpace:'nowrap',textOverflow:'ellipsis',fontWeight:'600',fontSize:'16px'}}>{product.name}</span><br/>
-                      <div style = {{border:'1px solid #ccc',fontSize:'16px',lineHeight:'2em',paddingLeft:'8px',borderRadius:'3px'}} onClick={this.showModal('modal2')}>{product.prodductSpec.spec_name}
+                      <div style = {{border:'1px solid #ccc',fontSize:'16px',lineHeight:'2em',paddingLeft:'8px',borderRadius:'3px'}} onClick={this.showModal('modal2')}>{product.productSpec.spec_name}
                         <img alt="" src={require('../svg/arrowdown.svg')} style = {{float:'right',width:'15px',height:'15px',margin:'6px 3px 0 0'}}/>
                       </div>
                       <WhiteSpace />
@@ -136,7 +136,7 @@ class ShopCartList extends React.Component {
                          <Flex style = {{margin:'10px'}}>
                            <img alt="" src = {goodImg} style = {{width:'60px',height:'60px',border:'8px solid #680000'}}/>
                            <div style = {{paddingLeft:'10px'}}>
-                             <span style = {{color:'red',fontSize:'16px'}}>￥{product.prodductSpec.spec_value/100
+                             <span style = {{color:'red',fontSize:'16px'}}>￥{product.productSpec.spec_value/100
 }/100</span>
                              <img alt="" src = {require('../svg/close_black.svg')} style = {{position:'absolute',right:'15px',top:'10px',width:'25px',height:'25px',paddingBottom:'44px'}} onClick = {this.onClose('modal2')}/><br/>
                              <span style = {{color:'#aaa'}}>请选择类型</span>
@@ -164,7 +164,7 @@ class ShopCartList extends React.Component {
                          </List>
                        </div>
                       </Modal>
-                      <span align = "left" className = {styles['good-price']}>￥{product.prodductSpec.spec_value/100
+                      <span align = "left" className = {styles['good-price']}>￥{product.productSpec.spec_value/100
 }</span>
                       <Stepper className = {styles['am-stepper-handler-down']}
                         style={{ width: '50%', minWidth: '100px',marginLeft:'22px',float:'right'}}

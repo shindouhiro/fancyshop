@@ -12,6 +12,7 @@ class FirmOrder extends React.Component {
     this.state = {
       order: [],
       shop: {},
+      total: '',
       isFetching: true,
     }
     this.paid = this.paid.bind(this)
@@ -23,10 +24,9 @@ class FirmOrder extends React.Component {
     MClient.on("result", message => {
       console.log(message.result)
       if (message.result.formMethod === 'app.order.getone') {
-        console.log(message.result)
         this.setState({
           order: message.result.orders,
-          shop: message.result.shop,
+          total: message.result.total,
           isFetching: false,
         })
       }
@@ -55,7 +55,7 @@ class FirmOrder extends React.Component {
   }
 
   render(){
-    let { order } = this.state;
+    let { order ,total} = this.state;
         return (
             <div style = {{marginTop:'50px',backgroundColor:'#fff'}}>
             {order.map((orderItem,index)=>{
@@ -71,9 +71,9 @@ class FirmOrder extends React.Component {
                           </div>
                           <div >
                             {/* <Flex style={{ marginBottom: '10px' }}></Flex> */}
-                            <span className={styles['type-color']}>{product.prodductSpec.spec_name} </span>
+                            <span className={styles['type-color']}>{product.productSpec.spec_name} </span>
                             <span className={styles['price-pst']} style = {{display:'flex',justifyContent:'flex-end'}}>
-                                <span className={styles['price-color']}>￥{product.prodductSpec.spec_value*product.count/100}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  </span>
+                                <span className={styles['price-color']}>￥{product.productSpec.spec_value*product.count/100}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  </span>
                             ×{product.count}</span>
                           </div>
                         </Flex>
@@ -99,46 +99,11 @@ class FirmOrder extends React.Component {
               )
             })
             }
-               
-
-        {/* <div style = {{marginTop:'20px'}}>
-            <span style = {{paddingLeft:'10px',fontWeight:'600',fontSize:'16px'}}>这是店铺的名字</span>
-            <div className = {styles['goods-frame']} style = {{border:'none',borderRadius:'0',borderBottom:'1px dashed red'}} >
-                <Flex justify = "center" >
-                    <div className = {styles['img-border']} >
-                        <img  className = {styles['goods-img']} alt="图片未显示" src = { goodImg }/>
-                    </div>
-                    <div >
-                        <Flex style = {{marginBottom:'10px'}}></Flex>
-                        <span className = {styles['type-color']}>规格：4L自喜力 </span>  
-                        <span className = {styles['price-pst']}>
-                        <span className = {styles['price-color']}>￥26.88 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  </span>×1</span>
-                     </div>
-                </Flex>
-             </div>
-            <div className = {styles['']} style = {{borderBottom:'1px solid #ccc',paddingBottom:'10px'}}>
-                <div>
-                    <img alt="" src={require('../svg/send.svg')} className = {styles['item-icon']}/>配送方式：<span style = {{color:'#888'}}>到店自提</span>
-                </div>
-                <div>
-                    <Link to = "/address">
-                        <div style = {{color:'#333',padding:'10px 0'}}><img alt="" src={require('../svg/location.svg')} className = {styles['item-icon']}/>地址：<span style = {{color:'#888',backgroundColor:'#eee'}}>16号公馆</span></div>
-                        <div style = {{color:'#333'}}><img alt="" src={require('../svg/phone.svg')} className = {styles['item-icon']}/>电话：<span style = {{color:'#888',backgroundColor:'#eee'}}>1782374899</span></div>
-                    </Link>
-                </div>
-            </div>
-            <div className = {styles['']} style = {{borderBottom:'1px solid #ccc',paddingBottom:'10px'}}>
-            <div>
-                <img alt="" src={require('../svg/notice.svg')} className = {styles['item-icon']}/>备注：<br/>
-                <TextareaItem rows = "2" style = {{backgroundColor:'#fff',fontSize:'12px',width:'95%',padding:'10px 3px'}} placeholder = "到店自提这是占位符占位符请不要介意如此粗糙的占位符哈哈哈哈" onChange={v=>this.handleChange('remark',v)}/>
-                </div>
-            </div>
-        </div> */}
         <div style = {{padding:'10px 0'}}>
         <WingBlank>
             <Flex justify = "between" > 
                 <span>商品金额</span>
-                <span style = {{color:'red'}}>¥3333.00</span>
+                <span style = {{color:'red'}}>¥{total}</span>
             </Flex>
             <WhiteSpace/>
             <Flex justify = "between" > 
@@ -155,7 +120,7 @@ class FirmOrder extends React.Component {
             <Flex justify = "end" style = {{borderTop:'2px solid #ddd',paddingTop:'10px'}} > 
             <WingBlank>
                 <span style = {{fontSize:'16px'}}>实付金额：</span>
-                <span style = {{color:'red'}}>¥3333.00</span>
+                <span style = {{color:'red'}}>¥{total}</span>
             </WingBlank>
             </Flex>
         </div>

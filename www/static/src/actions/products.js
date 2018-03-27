@@ -116,7 +116,6 @@ export function createOrder(product) {
     let methodId = MClient.method('app.orders.insert',[product]);
          
     MClient.on('result', message => {
-      console.log(message.result);
       if (message.result.formMethod ==='app.orders.insert'){
         history.push(`/firmorder/${message.result.orderCode}`)
       }
@@ -144,32 +143,9 @@ export function loadShopProductsByShopId(shopId,page,pagesize) {
 
 export function gainRecommandProducts(page,pagesize,data=[]) {
   return dispatch => {
-    // console.log(`获取推荐商品`)
-    // MClient.sub('app.get.recommend.products', [page,pagesize]);
-    // MClient.connect();
-    // let products = [];
-    // // data = data.slice();
-    // console.log(data);
-    // console.log(page);
-    // MClient.on("added", message => {
-    //   console.log(message.fields)
-    //   if(message.collection==='products'){
-    //     console.log(`175`)
-    //     if(products.length< pagesize){
-    //       message.fields.id = message.id
-    //       products.push(message.fields)
-    //     }
-    //     console.log(products)
-    //     console.log(data.concat(products))
-    //     dispatch(getRecommandProducts(data.concat(products)))
-    //   }
-    // })
-
     let methodId = MClient.method('app.get.recommend.products',[page,pagesize]);
     MClient.on('result', message => {
       if(message.id === methodId && !message.error){
-          console.log(message)
-          console.log(data);
           dispatch(getRecommandProducts(data.concat(message.result),page))
       }
     })

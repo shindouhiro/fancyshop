@@ -84,7 +84,7 @@ class ProductModal extends React.Component {
             cover: product.product.cover,
             product_id: product.product._id,
             name: product.product.name_zh,
-            prodductSpec: {
+            productSpec: {
               ...selected
             }
           },
@@ -121,7 +121,7 @@ class ProductModal extends React.Component {
                     checked: false, 
                     name: product.product.name_zh,
                     count: count,
-                    prodductSpec: selected,
+                   productSpec: selected,
                     cover: product.product.cover,
                     product_id: product.product._id
                   }
@@ -131,15 +131,13 @@ class ProductModal extends React.Component {
         }
         dispatch(insertCart(params))
         dispatch(closeSpecModel())
-    //     this.props.insertCart(params)
-    //     this.props.closeSpecModel()
         return
       }
        for(var i = 0;i < cart.list.shopsData.length;i++){
           shopIds.push(cart.list.shopsData[i].shop_id);
           for(var j=0;j<cart.list.shopsData[i].productsData.length;j++){
             goodIds.push(cart.list.shopsData[i].productsData[j].product_id)
-            specIds.push(cart.list.shopsData[i].productsData[j].prodductSpec.spec_name)
+            specIds.push(cart.list.shopsData[i].productsData[j].productSpec.spec_name)
           }
        
        }
@@ -151,12 +149,12 @@ class ProductModal extends React.Component {
          for(var i = 0;i < cart.list.shopsData.length;i++){
           for(var j=0;j<cart.list.shopsData[i].productsData.length;j++){
             if(cart.list.shopsData[i].productsData[j].product_id===productId){
-              // console.log(cart.list.shopsData[i].productsData[j].prodductSpec.spec_name);
+              // console.log(cart.list.shopsData[i].productsData[j].productSpec.spec_name);
               // console.log(selected.spec_name);
               if(specIds.includes(selected.spec_name)){
                 console.log(`存在规格`)
                 console.log(count)
-                if(cart.list.shopsData[i].productsData[j].prodductSpec.spec_name===selected.spec_name){
+                if(cart.list.shopsData[i].productsData[j].productSpec.spec_name===selected.spec_name){
                   cart.list.shopsData[i].productsData[j].count = cart.list.shopsData[i].productsData[j].count*1+count
                 }
               }else{
@@ -168,8 +166,8 @@ class ProductModal extends React.Component {
                   name: product.product.name_zh,
                   status: 1,
                   count: count,
-                  prodductSpec: selected,
-                cover: product.product.cover,
+                  productSpec: selected,
+                 cover: product.product.cover,
                   product_id: product.product._id
                 })
                 dispatch(addCart(cart.list.shopsData))
@@ -189,7 +187,7 @@ class ProductModal extends React.Component {
                 name: product.product.name_zh,
                 status: 1,
                 count: count,
-                prodductSpec: selected,
+                productSpec: selected,
                 cover: product.product.cover,
                 product_id: product.product._id
               })
@@ -216,7 +214,7 @@ class ProductModal extends React.Component {
                     name: product.product.name_zh,
                     status: 1,
                     count: count,
-                    prodductSpec: selected,
+                    productSpec: selected,
                     cover: product.product.cover,
                     product_id: product.product._id
                   }

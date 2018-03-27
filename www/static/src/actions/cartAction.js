@@ -56,7 +56,7 @@ function ProdcutTotal(data) {
   for(var i=0;i< shopsData.length; i++){
     for(var j=0;j< shopsData[i].productsData.length; j++){
       if(shopsData[i].productsData[j].checked === true){
-        total += shopsData[i].productsData[j].prodductSpec.spec_value*1 * shopsData[i].productsData[j].count
+        total += shopsData[i].productsData[j].productSpec.spec_value*1 * shopsData[i].productsData[j].count
       }
     }
   }
