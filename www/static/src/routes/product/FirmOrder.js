@@ -3,9 +3,7 @@ import { Flex, TextareaItem, Button, WhiteSpace, WingBlank } from 'antd-mobile';
 import { Link } from 'react-router-dom';
 import styles from '../orders/WaitDetails.css';
 import { MClient } from '../../config/asteroid.config.js'
-import MyActivityIndicator  from '../common/MyActivityIndicator';
-import { getStore } from '../../config/mUtils'
-import goodImg from '../../assets/img/reward/good.jpg';
+// import MyActivityIndicator  from '../common/MyActivityIndicator';
 
 
 class FirmOrder extends React.Component {
@@ -59,7 +57,7 @@ class FirmOrder extends React.Component {
   }
 
   render(){
-    let { order, shop } = this.state;
+    let { order } = this.state;
         return (
             <div style = {{marginTop:'50px',backgroundColor:'#fff'}}>
             {order.map((orderItem,index)=>{

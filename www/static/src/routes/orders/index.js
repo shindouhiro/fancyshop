@@ -1,14 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Flex, Tabs } from 'antd-mobile';
-import ShopName from './ShopName';
-import Goods from './Goods';
-import styles from './Common.css';
+import { Tabs } from 'antd-mobile';
 import '../../service/data/datasource';
 import { gainAllOrders, gainPaidOrders,gainUnPaidOrders,gainCancelOrders} from '../../actions/orders';
 import OrderList from './OrderList';
 import { getStore} from '../../config/mUtils.js';
-import { getUserbyId,getUserbyName} from '../../actions/users'; 
+import { getUserbyName} from '../../actions/users'; 
 class Orders extends React.Component {
   constructor(props) {  
     super(props)
@@ -47,10 +44,10 @@ class Orders extends React.Component {
   }
   componentWillMount(){
     const { dispatch } = this.props;
-    const {appUser,loading} = this.props
+    // const {appUser} = this.props
     let userId = getStore("userId");
     console.log(userId)
-    if (userId == undefined){
+    if (userId === undefined){
       let username = this.props.appUser.username 
       dispatch(getUserbyName(username))
     }

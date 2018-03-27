@@ -17,8 +17,6 @@ class BalanceBtn extends React.Component {
     console.log(cart);
     
     dispatch(cartCreatOrder(cart.list))
-    console.log('创建订单')
-    // this.props.history.push('/firmorder')
   }
   CheckAll(e) {
     let { cart,dispatch } = this.props;

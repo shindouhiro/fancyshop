@@ -10,3 +10,73 @@
    margin: 5px 10px;
    border-radius: 10px;
 }
+.item-top {
+  margin-top: 55px;
+}
+
+.item {
+  background-color: #fff;
+  border-radius: 5px;
+  border: 1px solid #eee;
+  width: 0 auto;
+  padding: 10px;
+}
+
+.shop-item {
+  border-left: 4px solid #ffcf2d;
+  margin-left: -10px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.shop-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+}
+
+.shop-describe {
+  padding-left: 10px;
+}
+
+.shop-name-font {
+  font-size: 16px;
+}
+
+.location-img {
+  width: 12px;
+  height: 12px;
+}
+
+.location-describe {
+  font-size: 12px;
+  color: #aaa;
+}
+
+.distance {
+  font-size: 16px;
+  color: #50c1f1;
+  padding-left: 40px;
+}
+
+.good-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 3px;
+  margin-left: 20px;
+}
+
+.good-name {
+  font-size: 14px;
+  color: #444;
+}
+
+.good-price {
+  font-size: 12px;
+  color: red;
+}
+
+.good-num {
+  font-size: 12px;
+  color: #e858cd;
+}

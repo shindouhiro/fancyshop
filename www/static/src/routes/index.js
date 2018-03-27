@@ -51,6 +51,7 @@ import configureStore from "../stores/index";
 import { getStore } from '../config/mUtils';
 import  PrivateRoute  from './container/PrivateRoute'
 import FirmOrderTest from './product/FirmOrderTest.js';
+
 const store = configureStore();
 const history = createHistory();
 const Home = ({ match }) => (
@@ -79,7 +80,7 @@ class App extends React.Component {
       <Router >
           <MainLayout history={history}>
           <Switch>
-              <PrivateRoute exact path="/" component={Home} authenticated={authenticated}/>
+              <Route exact path="/" component={Home} authenticated={authenticated}/>
               <PrivateRoute path="/messages" component={Messages} authenticated={authenticated}/>
               <PrivateRoute path="/my" component={My} authenticated={authenticated}/>
               <PrivateRoute path="/shop_cart" component={ShopCart}  authenticated={authenticated}/>
@@ -115,6 +116,7 @@ class App extends React.Component {
               <PrivateRoute path = "/orders" component={Orders} authenticated={authenticated}/>
               <PrivateRoute path = "/personal" component={Personal} authenticated={authenticated}/>
               <Route path = "/productlist" component={ProductListView}/>
+              <Route path="/produchtResult" component={SearchResult} />
               <Route component={NoMatchPage}/>
             </Switch>
 

@@ -214,6 +214,9 @@ export function getCart(id) {
     MClient.method('shop_carts.get_cart',[id]);
     MClient.on("result", message =>　{
       console.log(message.result)
+      if(!message.result){
+        return ;
+      }
       if ( message.result.formMethod==='shop_carts.get_cart') {
         console.log(message.result)
         dispatch(getCartSuccess(message.result))
@@ -249,8 +252,6 @@ export function cartCreatOrder(product) {
     let productData = JSON.parse(productJson)
     console.log(JSON.stringify(notDeleteShopCart(product)))
     console.log(deleteShopCart(productData))
-    
-    // console.log(product)
     MClient.method('app.shop_carts.orders',  [notDeleteShopCart(product), deleteShopCart(productData),userId]);
     MClient.on("result", message => {
       if (message.result.formMethod === 'app.shop_carts.orders'){

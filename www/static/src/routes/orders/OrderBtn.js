@@ -1,6 +1,6 @@
 import React from 'react';
 import { Flex } from 'antd-mobile';
-import { Modal, Button, Toast } from 'antd-mobile';
+import { Modal } from 'antd-mobile';
 
 // import s from './BtnStyle.css';
 import styles from './Common.css';

@@ -66,6 +66,7 @@ export default function AppUser(state={
                 loginStatus: "logined",
                 status: "online",
                 username: action.user.username,
+                roles: ["nobody","loginedUser"],
                 loading: false,
             })
         case EXPECT_USER_CARD:

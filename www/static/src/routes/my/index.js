@@ -76,22 +76,7 @@ class AppMy extends React.Component{
   }
 
   componentWillReceiveProps(nextProps){
-    // const {appUser } = nextProps;
-    // if(appUser.loading){
-    //   return Toast.loading("载入中", 1, ()=>{
-    //     console.log('')
-    //   });
-    // }
-    // if(appUser.status === 'logouting' ){
-    //   Toast.loading("正在登出", 3, ()=>{
-    //     console.log('登出中')
-    //   });
-    // }
-    // if(appUser.status === 'offline' ){
-    //   Toast.info("请登录用户", 1, ()=>{
-    //     this.props.history.push('/tablogin');
-    //   });
-    // }
+
   }
 
   userImgChange(){
@@ -102,7 +87,6 @@ class AppMy extends React.Component{
       console.log(reader);
       // 上传数据到IPFS
       saveImageOnIpfs(reader).then((hash) => {
-        console.log(hash);
         this.setState({userImg: "http://"+hostName+":8630"+"/ipfs/" + hash})
       });
     }

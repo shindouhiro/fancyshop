@@ -10,6 +10,7 @@ import '../../service/data/datasource';
 import { getProduct } from '../../actions/productAction';
 import { connect } from 'react-redux';
 import MyActivityIndicator  from '../common/MyActivityIndicator';
+import { loadAccessForCurrentUser } from '../../actions/access';
 
 
 class Goods extends React.Component {
@@ -30,10 +31,12 @@ class Goods extends React.Component {
 componentDidMount() {
     let id = this.props.match.params.id;
     let { dispatch } = this.props;
+    dispatch(loadAccessForCurrentUser(id));
     dispatch(getProduct(id))
  }
 
  componentWillReceiveProps(nextProps) {
+  
    let tagMenuArr = [];
    let spec = nextProps.product.selected
    for(var i=0;i<spec.length;i++){
@@ -116,8 +119,7 @@ render(){
 function mapStateToProps(state) {
   return {
     product: state.productReducer,
-    // product: state.product,
-    // reviceProduce: state.productShow.product
+    appUser: state.AppUser,
   }
 }
 

@@ -51,7 +51,9 @@ class ProductModal extends React.Component {
   }
 
     showModal = key => (e) => {
+     
      e.preventDefault(); // 修复 Android 上点击穿透
+    
      this.props.dispatch(openSpecModel())
    }
 
@@ -98,7 +100,7 @@ class ProductModal extends React.Component {
      }else{
      let count =product.count !== undefined ?product.count : 1
        let productId =product.product._id
-       let shopId =product.product.shop_id
+      //  let shopId =product.product.shop_id
        let shopIds = [];
        let goodIds = [];
        let specIds = [];
@@ -361,6 +363,7 @@ class ProductModal extends React.Component {
      product: state.productReducer,
      cart: state.cartReducer,
      model: state.model,
+     appUser: state.AppUser,
    }
  }
 

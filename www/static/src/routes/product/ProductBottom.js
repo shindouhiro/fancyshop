@@ -23,6 +23,12 @@ class ProductBottom extends React.Component {
 
   blockModal = key => (e) => {
     e.preventDefault(); // 修复 Android 上点击穿透
+    console.log("弹出增加购物车");
+     
+    const {appUser} = this.props;
+    if(appUser.status === "offline"){
+      this.props.history.push("/tablogin")
+    }
     this.props.dispatch(openSpecModel(true))
    //  this.setState({
    //    [key]: true,
@@ -42,7 +48,6 @@ class ProductBottom extends React.Component {
   }
   firmorder() {
     this.props.dispatch(openSpecModel(true,'orders'))
-    // this.props.history.push('/firmorder')
   }
   firmtest() {
     this.props.history.push('/firmtest')

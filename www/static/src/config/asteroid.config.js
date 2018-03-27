@@ -1,6 +1,6 @@
 import DDP from "ddp.js";
 const options = {
-    endpoint: "ws://localhost:4000/websocket",
+    endpoint: "ws://localhost:5000/websocket",
     SocketConstructor: WebSocket
 };
 

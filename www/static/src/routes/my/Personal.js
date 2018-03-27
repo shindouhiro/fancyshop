@@ -1,12 +1,12 @@
-import { Modal,List, InputItem,Picker, Button, DatePicker,Toast } from 'antd-mobile';
+import { Modal,List, Picker, DatePicker } from 'antd-mobile';
 import { createForm } from 'rc-form';
 import { connect } from 'react-redux';
 import React from 'react';
 // import { district, provinceLite } from 'antd-mobile-demo-data';
 import  options  from '../common/Options';
-import { setStore, getStore, removeStore } from '../../config/mUtils.js';
+import {  getStore } from '../../config/mUtils.js';
 import { getUserbyId,getUserbyName,updateNickname, updateDataAutograph,updateSex,updateArea,updateBirthday} from '../../actions/users'; 
-import MyActivityIndicator  from '../common/MyActivityIndicator';
+// import MyActivityIndicator  from '../common/MyActivityIndicator';
 var moment = require('moment');
 const Item = List.Item;
 const prompt = Modal.prompt;
@@ -39,10 +39,10 @@ class Personal extends React.Component {
    componentWillMount(){
 
      const {dispatch} = this.props
-     const {appUser,loading} = this.props
+    //  const {appUser} = this.props
      console.log(this.props.appUser)
      let userId = getStore("userId");
-     if (userId == undefined){
+     if (userId === undefined){
        let username = this.props.appUser.username 
        dispatch(getUserbyName(username))
      }
@@ -78,7 +78,7 @@ class Personal extends React.Component {
 
   render() {
     const { getFieldProps } = this.props.form;
-    const { currentUser } =  this.props
+    // const { currentUser } =  this.props
     console.log(options);
     return(
         <List renderHeader={() => '个人信息'}>

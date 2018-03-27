@@ -8,13 +8,9 @@ import { connect } from 'react-redux';
 class WaitDetails extends React.Component {
 
 componentDidMount(){
-  console.log("12129939139")
-  const {order} = this.props.order
-  console.log(order)
 }
 
 render(){
-  const {order} = this.props
   return(
     <div style = {{marginTop:'60px'}}>
       <div className = {styles['item-info']}>

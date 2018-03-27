@@ -1,22 +1,7 @@
+## Meteor react thinkjs 构造的正式的1.0beta版上线
 
-Application created by [ThinkJS](http://www.thinkjs.org)
+### 需要做的工作是：
 
-## Install dependencies
+1. 上线测试的商品和服务
+2. 支付和分销测试通过
 
-```
-npm install
-```
-
-## Start server
-
-```
-npm start
-```
-
-## Deploy with pm2
-
-Use pm2 to deploy app on production enviroment.
-
-```
-pm2 startOrReload pm2.json
-```

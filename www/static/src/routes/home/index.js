@@ -13,6 +13,7 @@ import './index.css';
 import { getRecommandProducts } from '../../actions/productsAction';
 import {getHomeTags} from '../../actions/app.js'
 import { getProducts } from '../../actions/productsAction'; 
+import { Link } from 'react-router-dom';
 
 
 
@@ -51,9 +52,9 @@ class AppHome extends React.Component{
               afterChange={index => console.log('slide to', index)}
             >
               {this.state.data.map(ii => (
-                <a
+                <Link
                   key={ii}
-                  href="http://www.alipay.com"
+                  to="/messages"
                   style={{ display: 'inline-block', width: '100%', height: this.state.imgHeight }}
                 >
                   <img
@@ -66,22 +67,22 @@ class AppHome extends React.Component{
                       this.setState({ imgHeight: 'auto' });
                     }}
                   />
-                </a>
+                </Link>
               ))}
             </Carousel>
             <WhiteSpace/>
 
           <Flex  direction="row" align="center" justify="around" style={{width: "100%"}}>
-            <Flex direction="row" justify="around" align="center" style={{background: "brown", color: "white",width: "50%",height: "100px"}} >商城</Flex>
+            <Flex direction="row" justify="around" align="center" style={{background: "brown", color: "white",width: "50%",height: "100px"}} >万人车汇自营店</Flex>
             <Flex  direction="column"  align="center" style={{height: "100px", width: "50%"}}>
-              <Flex justify="around" style={{height: "49px", background: "white", color: "grey", width: "100%"}}>财务</Flex>
-              <Flex justify="around" style={{height: "50px", background: "grey", color: "white", width: "100%"}}>新手指导</Flex>
+              <Flex justify="around" style={{height: "49px", background: "white", color: "grey", width: "100%"}}>收入排行</Flex>
+              <Flex justify="around" style={{height: "49px", background: "grey", color: "white", width: "100%"}}>成为会员</Flex>
             </Flex>
           </Flex>
 
           <WhiteSpace />
           <WhiteSpace />
-          <RecommandProducts  />
+              <RecommandProducts />
           <WhiteSpace />
             <ShopTagMenu history={this.props.path} />
           <WhiteSpace />

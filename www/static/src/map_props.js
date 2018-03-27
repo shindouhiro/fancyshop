@@ -23,7 +23,8 @@ export function modelInfo(state) {
     model: state.model,
     product: state.product,
     cart: state.cart,
-    productShow: state.productShow
+    productShow: state.productShow,
+    appUser: state.AppUser,
   }
 }
 
