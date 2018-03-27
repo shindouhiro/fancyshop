@@ -73,9 +73,9 @@ class OrderBtn extends React.Component {
             )
             default:
               return (
-                <Flex justify = "end" >
-                  <button >详情</button>
-                  <button >删除订单</button>
+                <Flex justify = "end" style = {{margin:'10px'}}>
+                  <button className = {styles['detail-btn']}>详情</button>
+                  <button className = {styles['revoke-btn']}>删除订单</button>
                 </Flex>
               );
            }

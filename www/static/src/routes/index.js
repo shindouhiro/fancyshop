@@ -50,7 +50,7 @@ import createHistory from 'history/createHashHistory';
 import configureStore from "../stores/index";
 import { getStore } from '../config/mUtils';
 import  PrivateRoute  from './container/PrivateRoute'
-import FirmOrderTest from './product/FirmOrderTest.js';
+// import FirmOrderTest from './product/FirmOrderTest.js';
 
 const store = configureStore();
 const history = createHistory();
@@ -96,7 +96,7 @@ class App extends React.Component {
               <Route path = "/facilitator/:shopId" component = { Facilitator }/>
               <Route path = "/productmodal" component={ ProductModal }/>
               <PrivateRoute path="/firmorder/:orderId" component={FirmOrder} authenticated={authenticated}/>
-              <Route path = "/firmtest" component = { FirmOrderTest }/>
+              {/* <Route path = "/firmtest" component = { FirmOrderTest }/> */}
               <Route path = "/paysuccess" component = {PaySuccess}/>
               <Route path="/forgotpassword" component={ForgotPassword}  />
               <Route path="/resetpassword" component={ResetPassword}  />
