@@ -19,13 +19,14 @@ componentDidMount(){
 
 render(){
   const {order} = this.props
-  console.log(order);
+  console.log(JSON.stringify(order));
+  // console.log(order.mobile)
   return(
     <div style = {{marginTop:'60px'}}>
       <div className = {styles['item-info']}>
         <div><img src={require('../svg/send.svg')} className={styles['item-icon']} alt="图片未显示"/>配送方式：<span style = {{color:'#888'}}>到店自提</span></div>
-        <div><img src={require('../svg/location.svg')} className={styles['item-icon']} alt="图片未显示"/>地址：<span style = {{color:'#888'}}>地址</span></div>
-        <div><img src={require('../svg/phone.svg')} className = {styles['item-icon']} alt="图片未显示"/>电话：<span style = {{color:'#888'}}>123456789</span></div>
+        <div><img src={require('../svg/location.svg')} className={styles['item-icon']} alt="图片未显示"/>地址：<span style = {{color:'#888'}}>{order.address}</span></div>
+        <div><img src={require('../svg/phone.svg')} className = {styles['item-icon']} alt="图片未显示"/>电话：<span style = {{color:'#888'}}>{order.mobile}</span></div>
       </div>
 
       <div className = {styles['item-user']}>

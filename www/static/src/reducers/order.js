@@ -10,7 +10,34 @@ const initState = {
 		"products" : [
 		],
 		"username" : "",
-		"address" : null
+		"address" : null,
+		order: {
+			"_id": "",
+			"userId": "",
+			"status": "",
+			"address": "",
+			"username": "",
+			"nickname": "",
+			"mobile": "",
+			"shopId": "",
+			"products": [
+				{
+					"shop_id": "",
+					"checked": true,
+					"name": "",
+					"status": "",
+					"count": "",
+					"prodductSpec": {
+						"spec_name": "",
+						"spec_value": "",
+						"isThis": ""
+					},
+					"cover": "",
+					"product_id": ""
+				}
+			],
+			"orderCode": ""
+		}
 	}
 }
 
