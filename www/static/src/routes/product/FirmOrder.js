@@ -19,8 +19,6 @@ class FirmOrder extends React.Component {
 
   componentDidMount() {
     let id = this.props.match.params.orderId;
-    console.log(id)
-
     MClient.method("app.order.getone", [id]);
     MClient.on("result", message => {
       console.log(message.result)
@@ -85,7 +83,7 @@ class FirmOrder extends React.Component {
                           <img alt="" src={require('../svg/send.svg')} className={styles['item-icon']} />配送方式：<span style={{ color: '#888' }}>到店自提</span>
                         </div>
                         <div>
-                            <div style={{ color: '#333', padding: '10px 0' }}><img alt="" src={require('../svg/location.svg')} className={styles['item-icon']} />地址：<span style={{ color: '#888', backgroundColor: '#eee' }}>{orderItem.address}</span></div>
+                          <div style={{ color: '#333', padding: '10px 0' }}><img alt="" src={require('../svg/location.svg')} className={styles['item-icon']} />地址：<span style={{ color: '#888', backgroundColor: '#eee' }}>{orderItem.shopAddress}</span></div>
                             <div style={{ color: '#333' }}><img alt="" src={require('../svg/phone.svg')} className={styles['item-icon']} />电话：<span style={{ color: '#888', backgroundColor: '' }}>1782374899</span></div>
                         </div>
                       </div>
