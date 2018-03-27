@@ -1,10 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Flex } from 'antd-mobile';
-import shopImg from '../../assets/img/timg.jpg';
-import goodImg from '../../assets/img/reward/good.jpg';
 import OrderBtn from './OrderBtn';
-import {getShopNameById} from '../../actions/orders'
 
 class OrderList extends React.Component {
 
@@ -13,7 +10,7 @@ class OrderList extends React.Component {
     console.log(dataSource)
     return (
       <div style = {{backgroundColor:'#fff',marginTop:'50px',padding:'10px 10px'}}>
-      {dataSource.length==0?
+      {dataSource.length===0?
         "暂时没有任何订单哦"
         :
         (dataSource.map((v,index)=>{

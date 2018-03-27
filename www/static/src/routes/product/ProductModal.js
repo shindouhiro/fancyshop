@@ -100,7 +100,7 @@ class ProductModal extends React.Component {
      }else{
      let count =product.count !== undefined ?product.count : 1
        let productId =product.product._id
-       let shopId =product.product.shop_id
+      //  let shopId =product.product.shop_id
        let shopIds = [];
        let goodIds = [];
        let specIds = [];

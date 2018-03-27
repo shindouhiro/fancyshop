@@ -12,7 +12,7 @@ class Goods extends React.Component {
         {this.props.goods}
           <Flex justify = "start" style = {{backgroundColor:'#f8f8f8',padding:'15px',height:'auto',margin:'5px 10px 15px 10px'}}>
 
-            <img alt="" src = { goodImg } style = {{height:'50px',width:'70px'}}/>
+            <img alt="图片未显示" src = { goodImg } style = {{height:'50px',width:'70px'}}/>
 
           <div style = {{paddingLeft:'8px'}}>
             <Flex style = {{marginBottom:'10px'}}>

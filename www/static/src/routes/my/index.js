@@ -87,7 +87,6 @@ class AppMy extends React.Component{
       console.log(reader);
       // 上传数据到IPFS
       saveImageOnIpfs(reader).then((hash) => {
-        console.log(hash);
         this.setState({userImg: "http://"+hostName+":8630"+"/ipfs/" + hash})
       });
     }

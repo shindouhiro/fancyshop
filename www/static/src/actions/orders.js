@@ -184,10 +184,10 @@ function getSingleOrder(order){
 
 export function loadOrderById(id) {
   return  dispatch => {
-      let methodId =  MClient.method('app.order.getone',[id]);
+      MClient.method('app.order.getone',[id]);
       
       MClient.on('result', message => {
-        if(message.id === methodId && !message.error && message.result.formMethod =="app.order.getone"){
+        if(message.result.formMethod === "app.order.getone"){
           console.log(message.result);
           dispatch(reviceOrderById(message.result))
         }else{
@@ -198,9 +198,9 @@ export function loadOrderById(id) {
 }
 export function getOrderByCode(code) {
   return  dispatch => {
-      let methodId =  MClient.method('app.getOrderByCode',[code]);
+      MClient.method('app.getOrderByCode',[code]);
       MClient.on('result', message => {
-        if(message.id === methodId && !message.error && message.result.formMethod =="app.getOrderByCode"){
+        if(message.result.formMethod ==="app.getOrderByCode"){
           console.log(message.result);
           dispatch(getSingleOrder(message.result))
         }else{
@@ -241,7 +241,6 @@ export function createOrder(product) {
             // dispatch(getShopName(message.result.shopName))
           }else{
             return "未知店铺"
-            console.log(message.error);
           }
         }
       })
@@ -256,12 +255,8 @@ export function cancelOrder(code){
     MClient.on('result',message=>{
       if(message.id === methodId && !message.error && message.result.formMethod === 'app.cancel.order'){
         if(message.result){
-          console.log("只调用一次")
-          console.log("取消订单成功")
-          // dispatch(getShopName(message.result.shopName))
         }else{
           return "取消订单失败"
-          console.log(message.error);
         }
       }
     })

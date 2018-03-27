@@ -1,6 +1,6 @@
 import React from 'react';
 import { SearchBar, Flex, WhiteSpace, WingBlank } from 'antd-mobile';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import s from './ProductSearch.css';
 import { MClient } from '../../config/asteroid.config';
 import goodImg from '../../assets/img/orders/good.jpg';
