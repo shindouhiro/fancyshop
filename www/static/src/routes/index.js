@@ -48,8 +48,10 @@ import OrderList from './orders/OrderList';
 import{ loadLoginedUserInfo } from '../actions/users';
 import createHistory from 'history/createHashHistory';
 import configureStore from "../stores/index";
+import { getStore } from '../config/mUtils';
 import  PrivateRoute  from './container/PrivateRoute'
-// import SearchResult from './search/SearchResult'
+import FirmOrderTest from './product/FirmOrderTest.js';
+
 const store = configureStore();
 const history = createHistory();
 const Home = ({ match }) => (
@@ -93,7 +95,8 @@ class App extends React.Component {
               <Route path = "/nullcart" component={ CartNull }/>
               <Route path = "/facilitator/:shopId" component = { Facilitator }/>
               <Route path = "/productmodal" component={ ProductModal }/>
-              <Route path="/firmorder/:orderId" component={FirmOrder} authenticated={authenticated}/>
+              <PrivateRoute path="/firmorder/:orderId" component={FirmOrder} authenticated={authenticated}/>
+              <Route path = "/firmtest" component = { FirmOrderTest }/>
               <Route path = "/paysuccess" component = {PaySuccess}/>
               <Route path="/forgotpassword" component={ForgotPassword}  />
               <Route path="/resetpassword" component={ResetPassword}  />
