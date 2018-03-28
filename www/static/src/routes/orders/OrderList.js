@@ -9,7 +9,7 @@ class OrderList extends React.Component {
     let { dataSource } = this.props;
     console.log(dataSource)
     return (
-      <div style = {{backgroundColor:'#fff',marginTop:'50px',padding:'10px 10px'}}>
+      <div style = {{backgroundColor:'#fff',marginTop:'5px',padding:'10px 10px'}}>
       {dataSource.length===0?
         "暂时没有任何订单哦"
         :
@@ -23,8 +23,8 @@ class OrderList extends React.Component {
              {v.products.map((n,index)=>{
                return (
                  <Flex justify = "start" style = {{backgroundColor:'#eee',padding:'10px',marginTop:'10px'}}>
-                 <Flex style = {{width:'70px'}}>
-                   <img alt="" src = {n.cover}/>
+                 <Flex style = {{width:'90px'}}>
+                   <img alt="" src = {n.cover} style = {{width:'70px',height:'70px',borderRadius:'8px'}}/>
                  </Flex>
                  <Flex direction = "column" justify = "start" align = "start" style = {{width:'100%'}}>
                    <span style = {{color:'#333',fontSize:'16px',fontWeight:'600',width:'100%',paddingLeft:'10px'}}>{n.name}</span><br/>
