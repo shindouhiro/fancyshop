@@ -1,5 +1,5 @@
 import React from 'react';
-import { Flex, Modal} from 'antd-mobile';
+import { Flex, Modal, Button } from 'antd-mobile';
 import s from './MyBankCard.css';
 
 const alert = Modal.alert;
@@ -13,7 +13,13 @@ class MyBankCard extends React.Component {
  }
   render(){
     return (
-      <div className = {s['bank-item']}>
+      <div>
+        <Flex justify = "end" style = {{margin:'10px'}}>
+        <img alt="图标未显示" src={require('../../assets/svg/add.svg')} style = {{width:'25px',height:'25px'}}
+        onClick = {this.editbankcard}/>
+        </Flex>
+        {/* <Button> 添加银行卡 </Button> */}
+      <div className = {s['bank-item']} style = {{marginTop:'10px'}}>
         <Flex justify = "center" className = {s['mybankcard']}>我的银行卡</Flex>
         <Flex justify = "around" className = {s['username']}>
           <span>开户名</span>
@@ -32,13 +38,15 @@ class MyBankCard extends React.Component {
           <span>time</span>
         </Flex>
         <Flex justify = "around" className = {s['username']}>
-          <span onClick = {this.editbankcard}>解除绑定</span>
+          {/* <span onClick = {this.editbankcard}>解除绑定</span> */}
+          <span>解除绑定</span>
           <img alt="" src = {require('../svg/delete.svg')} className = {s['delete-svg']}
           onClick={() => alert('Delete', '确定要删除这张银行卡吗？', [
            { text: 'Cancel', onPress: () => console.log('cancel') },
            { text: 'Ok', onPress: () => console.log('ok') },])}
         />
         </Flex>
+      </div>
       </div>
     )
   }

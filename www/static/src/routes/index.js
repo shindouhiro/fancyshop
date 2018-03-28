@@ -18,7 +18,7 @@ import Goods from './product/index';
 import ShopCart from './shop_cart/index';
 import WaitDetails from './orders/WaitDetails';
 import Paid from './orders/Paid';
-import Refund from './orders/Refund';
+// import Refund from './orders/Refund';
 import UntreatedDetail from './orders/UntreatedDetail';
 import QrCode from './orders/QrCode';
 import CartNull from './shop_cart/CartNull';
@@ -49,8 +49,7 @@ import{ loadLoginedUserInfo } from '../actions/users';
 import createHistory from 'history/createHashHistory';
 import configureStore from "../stores/index";
 import { getStore } from '../config/mUtils';
-import  PrivateRoute  from './container/PrivateRoute'
-// import FirmOrderTest from './product/FirmOrderTest.js';
+import  PrivateRoute  from './container/PrivateRoute';
 
 const store = configureStore();
 const history = createHistory();
@@ -89,7 +88,7 @@ class App extends React.Component {
               <Route path = "/product/:id" component={Goods}/>
               <PrivateRoute path="/order_details/:orderId" component={WaitDetails} authenticated={authenticated}/>
               <PrivateRoute path="/paid/:orderId" component={Paid} authenticated={authenticated}/>
-              <Route path = "/refund" component={Refund}/>
+              {/* <Route path = "/refund" component={Refund}/> */}
               <Route path = "/untreated" component={UntreatedDetail}/>
               <Route path = "/qrcode" component={QrCode}/>
               <Route path = "/nullcart" component={ CartNull }/>

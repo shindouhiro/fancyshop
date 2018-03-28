@@ -7,8 +7,9 @@ class EditBankCard extends React.Component {
   render(){
     const { getFieldProps } = this.props.form;
     return(
-      <div style = {{backgroundColor:'#fff',marginTop:'50px',paddingBottom:'15px'}}>
-        <h1 style = {{padding:'0 10px'}}>请务必认真填写，校验正确，否则不能到账</h1>
+      <div style = {{backgroundColor:'#fff',marginTop:'50px',padding:'15px'}}>
+        <h3 style = {{padding:'0 10px'}}>请务必认真填写，校验正确，否则不能到账</h3>
+        <div style = {{border:'1px solid #f6f6f6'}}></div>
         <InputItem type = "text" placeholder = "开户户头姓名">姓名</InputItem>
          <InputItem
           {...getFieldProps('bankCard', {
